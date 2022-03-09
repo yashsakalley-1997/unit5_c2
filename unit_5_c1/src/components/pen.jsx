@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-export function Pens(props)
+export function Pens({value,fn})
 {
-    const [pen_counter,setPens] = useState(props['value']);
+    const [pen_counter,setPens] = useState(value);
 
     const handleChange = (value)=>{
         setPens(pen_counter+value);
@@ -12,13 +12,15 @@ export function Pens(props)
     return(
         <>
             <span>Pens:</span>
-            <button className="addPen" onClick={()=>(
+            <button className="addPen" onClick={()=>{
+                fn(1)
                 handleChange(1)
-            )}>
+            }}>
                 +
             </button>
             <button className="remPen" onClick={()=>{
                     if(pen_counter >= 1){
+                        fn(-1)
                         handleChange(-1)
                     }
                 }}>-</button>

@@ -37,14 +37,7 @@
   }
 }
 .items{
-  padding: 20px;
+  /* padding: 20px; */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   font-size: 20px;
-}
-
-.items>div{
-  display: flex;
-  justify-content: space-around;
-  width: 30%;
-  margin-bottom: 20px;
 }

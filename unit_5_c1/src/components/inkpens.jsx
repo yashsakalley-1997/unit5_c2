@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-export function InkPens(props){
-    const [ink_counter,setInks] = useState(props['value']);
+export function InkPens({value,fn}){
+    const [ink_counter,setInks] = useState(value);
     const obj = JSON.parse(localStorage.getItem("obj"));
 
     const handleChange = (value)=>{
@@ -14,13 +14,15 @@ export function InkPens(props){
     return(
         <>
             <span>InkPens:</span>
-            <button className="addInkpen" onClick={()=>(
+            <button className="addInkpen" onClick={()=>{
+                fn(1)
                 handleChange(1)
-            )}>
+            }}>
                 +
             </button>
             <button className="remInkpen" onClick={()=>{
                     if(ink_counter >= 1){
+                        fn(-1)
                         handleChange(-1)
                     }
                 }}>-</button>
